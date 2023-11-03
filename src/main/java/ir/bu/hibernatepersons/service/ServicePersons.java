@@ -3,7 +3,6 @@ package ir.bu.hibernatepersons.service;
 import ir.bu.hibernatepersons.model.Contact;
 import ir.bu.hibernatepersons.model.Person;
 import ir.bu.hibernatepersons.repository.CustomizedPersonsCrudRepository;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,10 +18,6 @@ public class ServicePersons {
 
     public List<Person> findAllByCityOfLiving(String city) {
         return crudRepository.findAllByCityOfLiving(city);
-    }
-
-    public List<Person> findAllByContact_AgeOrderByContactAsc(int age) {
-        return crudRepository.findAllByContact_AgeOrderByContactAsc(age);
     }
 
     public List<Person> findPeopleByContactAgeIsLessThanOrderByContact_AgeAsc(int age) {

@@ -1,6 +1,9 @@
 package ir.bu.hibernatepersons.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +25,7 @@ public class Person {
     }
 
     @Override
-    public String  toString() {
+    public String toString() {
         return "Person{" +
                 "contact=" + contact +
                 ", phoneNumber='" + phoneNumber + '\'' +

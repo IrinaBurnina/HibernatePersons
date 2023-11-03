@@ -7,6 +7,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "persons", schema = "homework")
 public class Person {

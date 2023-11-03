@@ -1,8 +1,9 @@
 package ir.bu.hibernatepersons.service;
 
+import ir.bu.hibernatepersons.model.Contact;
 import ir.bu.hibernatepersons.model.Person;
 import ir.bu.hibernatepersons.repository.CustomizedPersonsCrudRepository;
-import ir.bu.hibernatepersons.repository.RepositoryPersons;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,19 +17,36 @@ public class ServicePersons {
         this.crudRepository = crudRepository;
     }
 
-    public List<Person> findAllByCityOfLiving(String city){
-       return crudRepository.findAllByCityOfLiving(city);
+    public List<Person> findAllByCityOfLiving(String city) {
+        return crudRepository.findAllByCityOfLiving(city);
     }
-    public List<Person> findAllByContact_AgeOrderByContactAsc(int age){
-     return crudRepository.findAllByContact_AgeOrderByContactAsc(age);
+
+    public List<Person> findAllByContact_AgeOrderByContactAsc(int age) {
+        return crudRepository.findAllByContact_AgeOrderByContactAsc(age);
     }
-    public List<Person> findPeopleByContactAgeIsLessThanOrderByContact_AgeAsc(int age){
+
+    public List<Person> findPeopleByContactAgeIsLessThanOrderByContact_AgeAsc(int age) {
         return crudRepository.findPeopleByContactAgeIsLessThanOrderByContact_AgeAsc(age);
-    };
-
-    public Optional<Person> findPersonByContact_NameAndContact_Surname (String name, String surname){
-      return crudRepository.findPersonByContact_NameAndContact_Surname(name, surname);
     }
 
+    public Optional<Person> findPersonByContact_NameAndContact_Surname(String name, String surname) {
+        return crudRepository.findPersonByContact_NameAndContact_Surname(name, surname);
+    }
+
+    public void save(Person person) {
+        crudRepository.save(person);
+    }
+
+    public void delete(Person person) {
+        crudRepository.delete(person);
+    }
+
+    public Optional<Person> findById(Contact id) {
+        return crudRepository.findById(id);
+    }
+
+    public List<Person> findAll() {
+        return crudRepository.findAll();
+    }
 }
 

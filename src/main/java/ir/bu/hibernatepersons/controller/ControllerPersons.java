@@ -17,6 +17,11 @@ public class ControllerPersons {
         this.servicePersons = servicePersons;
     }
 
+    @GetMapping("/hi")
+    public String hello() {
+        return "Hello>>>WELCOME to BD of persons!";
+    }
+
     @GetMapping("/all_by_city")
     public List<Person> findAllByCityOfLiving(@RequestParam("city") String city) {
         return servicePersons.findAllByCityOfLiving(city);

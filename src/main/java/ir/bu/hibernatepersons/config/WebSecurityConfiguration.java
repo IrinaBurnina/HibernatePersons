@@ -47,10 +47,6 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
                         .requestMatchers(HttpMethod.GET, "/persons/hi").permitAll()
-//                        .requestMatchers(HttpMethod.GET, "/read-all").hasRole("USER")
-//                        .requestMatchers(HttpMethod.POST, "/create").hasAuthority("Ivan")
-//                        .requestMatchers(HttpMethod.POST, "/delete").hasAnyAuthority("Ivan", "Maxim", "admin")
-//                        .requestMatchers(HttpMethod.POST, "/update").hasAuthority("Maxim")
                         .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults());
         return http.build();
